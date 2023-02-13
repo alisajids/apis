@@ -2,66 +2,8 @@
 package com.example.services.impl;
 
 import static com.example.common.util.constant.FusionConstants.ERROR;
-import static com.example.common.util.constant.FusionConstants.MAIL_TEMPLATE;
-import static com.example.common.util.constant.FusionConstants.VUSER;
-import static com.example.common.util.constant.FusionConstants.XSTREAMONE;
-import static java.util.stream.Collectors.toList;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Type;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import javax.validation.ConstraintViolationException;
-
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.jboss.aerogear.security.otp.api.Base32;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.dao.DataAccessException;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.google.common.reflect.TypeToken;
-import com.microsoft.aad.msal4j.MsalInteractionRequiredException;
-import com.example.common.db.model.Tenant;
-import com.example.common.db.model.Tpfeature;
-import com.example.common.db.model.Tppermission;
-import com.example.common.db.model.UserNotification;
-import com.example.common.db.model.Usercredential;
-import com.example.common.db.model.Usertofeaturepermission;
-import com.example.common.db.model.VUser;
-import com.example.common.db.repository.TenantJpaRepository;
-import com.example.common.db.repository.TpfeatureJpaRepository;
-import com.example.common.db.repository.TppermissionJpaRepository;
-import com.example.common.db.repository.UserNotificationRepository;
 
 
-import lombok.extern.slf4j.Slf4j;
-
-/**
- * This class provides user account level services.
- * 
- * @author
- *
- */
 @Slf4j
 @Service
 public class UserAccountServiceImpl implements FusionUserAccountService {
