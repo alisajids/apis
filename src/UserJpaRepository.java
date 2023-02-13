@@ -14,7 +14,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 
 @RepositoryRestResource(exported=false)
-public interface VUserJpaRepository extends JpaRepository<VUser, Long> {
+public interface UserJpaRepository extends JpaRepository<VUser, Long> {
 
 	@Override
 	@Query(" SELECT u FROM VUser u WHERE u.isactive = true and u.id =:id")
