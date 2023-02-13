@@ -21,10 +21,10 @@ import java.util.UUID;
 @Entity
 @Table(name = "vuser")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
-@NamedQuery(name = "VUser.findAll", query = "SELECT u FROM VUser u")
-@NamedQuery(name = "VUser.findByUserDetails", query = "SELECT u FROM VUser u where u.id=:userid and u.isactive = true")
+@NamedQuery(name = "User.findAll", query = "SELECT u FROM VUser u")
+@NamedQuery(name = "User.findByUserDetails", query = "SELECT u FROM VUser u where u.id=:userid and u.isactive = true")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class VUser extends CommonAudit implements Serializable {
+public class User extends CommonAudit implements Serializable {
 
 	public static final boolean ENABLED = true;
 	public static final boolean DISABLED = false;
