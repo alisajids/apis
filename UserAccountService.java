@@ -1,14 +1,14 @@
-package com.virtustream.trustplatform.services;
+package com.example.services;
 
-import com.virtustream.common.db.model.VUser;
-import com.virtustream.common.dto.*;
+import com.example.common.db.model.VUser;
+import com.example.common.dto.*;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-public interface FusionUserAccountService {
+public interface UserAccountService {
 
 	UserXsKeyPairResponseDto getUserXsKeyPair(UUID tenantid, String username, String name);
 	VUser findVUser(String userName);
