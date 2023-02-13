@@ -1,8 +1,6 @@
 
 package com.example.services.impl;
 
-import static com.example.common.util.constant.FusionConstants.ERROR;
-
 
 @Slf4j
 @Service
