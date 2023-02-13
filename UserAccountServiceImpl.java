@@ -1,20 +1,10 @@
-/*
- * Copyright (c) 2019-2022 Virtustream Corporation 
- * All Rights Reserved
- *
- * This software contains the intellectual property of Virtustream Corporation
- * or is licensed to Virtustream Corporation from third parties. Use of this
- * software and the intellectual property contained therein is expressly
- * limited to the terms and conditions of the License Agreement under which
- * it is provided by or on behalf of Virtustream.
- *
- */
-package com.virtustream.trustplatform.services.impl;
 
-import static com.virtustream.common.util.constant.FusionConstants.ERROR;
-import static com.virtustream.common.util.constant.FusionConstants.MAIL_TEMPLATE;
-import static com.virtustream.common.util.constant.FusionConstants.VUSER;
-import static com.virtustream.common.util.constant.FusionConstants.XSTREAMONE;
+package com.example.services.impl;
+
+import static com.example.common.util.constant.FusionConstants.ERROR;
+import static com.example.common.util.constant.FusionConstants.MAIL_TEMPLATE;
+import static com.example.common.util.constant.FusionConstants.VUSER;
+import static com.example.common.util.constant.FusionConstants.XSTREAMONE;
 import static java.util.stream.Collectors.toList;
 
 import java.lang.reflect.InvocationTargetException;
@@ -51,55 +41,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.reflect.TypeToken;
 import com.microsoft.aad.msal4j.MsalInteractionRequiredException;
-import com.virtustream.common.db.model.Tenant;
-import com.virtustream.common.db.model.Tpfeature;
-import com.virtustream.common.db.model.Tppermission;
-import com.virtustream.common.db.model.UserNotification;
-import com.virtustream.common.db.model.Usercredential;
-import com.virtustream.common.db.model.Usertofeaturepermission;
-import com.virtustream.common.db.model.VUser;
-import com.virtustream.common.db.repository.TenantJpaRepository;
-import com.virtustream.common.db.repository.TpfeatureJpaRepository;
-import com.virtustream.common.db.repository.TppermissionJpaRepository;
-import com.virtustream.common.db.repository.UserNotificationRepository;
-import com.virtustream.common.db.repository.UsercredentialJpaRepository;
-import com.virtustream.common.db.repository.UsertofeaturepermissionJpaRepository;
-import com.virtustream.common.db.repository.VUserJpaRepository;
-import com.virtustream.common.dto.AuthCodeDto;
-import com.virtustream.common.dto.CspInfoDto;
-import com.virtustream.common.dto.ForgotPasswordTokenValidationDto;
-import com.virtustream.common.dto.FusionMessage;
-import com.virtustream.common.dto.MailDTO;
-import com.virtustream.common.dto.NameValuePair;
-import com.virtustream.common.dto.RefreshTokendto;
-import com.virtustream.common.dto.ServiceproviderKeyInfoResponseDto;
-import com.virtustream.common.dto.UserRegistrationTokenValidationDto;
-import com.virtustream.common.dto.UserXsKeyPairResponseDto;
-import com.virtustream.common.dto.VUserdto;
-import com.virtustream.common.dto.gcp.GCPTokenDto;
-import com.virtustream.common.enums.CSPType;
-import com.virtustream.common.exception.AccountServiceException;
-import com.virtustream.common.exception.FusionException;
-import com.virtustream.common.exception.GCPAuthenticationException;
-import com.virtustream.common.services.FusionEncryptionService;
-import com.virtustream.common.services.MailService;
-import com.virtustream.common.services.UserRIDService;
-import com.virtustream.common.services.client.CSPClientFactory;
-import com.virtustream.common.services.client.CloudServiceProviderClient;
-import com.virtustream.common.services.client.gcp.GCPOAuthAPI;
-import com.virtustream.common.util.DtoEntityMapper;
-import com.virtustream.common.util.FusionCalendarUtil;
-import com.virtustream.common.util.FusionStringUtil;
-import com.virtustream.common.util.GsonUtil;
-import com.virtustream.common.util.JsonUtil;
-import com.virtustream.common.util.MessageUtil;
-import com.virtustream.common.util.RandomKeyGenerator;
-import com.virtustream.common.util.constant.FusionConstants;
-import com.virtustream.trustplatform.aop.LogRequest;
-import com.virtustream.trustplatform.services.AzureService;
-import com.virtustream.trustplatform.services.FusionUserAccountService;
-import com.virtustream.trustplatform.services.GCPService;
-import com.virtustream.trustplatform.services.TenantService;
+import com.example.common.db.model.Tenant;
+import com.example.common.db.model.Tpfeature;
+import com.example.common.db.model.Tppermission;
+import com.example.common.db.model.UserNotification;
+import com.example.common.db.model.Usercredential;
+import com.example.common.db.model.Usertofeaturepermission;
+import com.example.common.db.model.VUser;
+import com.example.common.db.repository.TenantJpaRepository;
+import com.example.common.db.repository.TpfeatureJpaRepository;
+import com.example.common.db.repository.TppermissionJpaRepository;
+import com.example.common.db.repository.UserNotificationRepository;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -111,7 +64,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Service
-public class FusionUserAccountServiceImpl implements FusionUserAccountService {
+public class UserAccountServiceImpl implements FusionUserAccountService {
 
 	public static final String QR_PREFIX = "https://chart.googleapis.com/chart?chs=200x200&chld=M%%7C0&cht=qr&chl=";
 	public static final String APP_NAME = "TrustPlatform";
