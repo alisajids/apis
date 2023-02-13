@@ -1,18 +1,7 @@
-/*
- * Copyright (c) 2019-2022 Virtustream Corporation 
- * All Rights Reserved
- *
- * This software contains the intellectual property of Virtustream Corporation
- * or is licensed to Virtustream Corporation from third parties. Use of this
- * software and the intellectual property contained therein is expressly
- * limited to the terms and conditions of the License Agreement under which
- * it is provided by or on behalf of Virtustream.
- *
- */
-package com.virtustream.trustplatform.controller;
 
-import static com.virtustream.common.util.constant.FusionConstants.ERROR;
-import static com.virtustream.common.util.constant.FusionConstants.VUSER;
+package com.example.controller;
+
+
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
@@ -45,36 +34,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.virtustream.common.db.model.Tenant;
-import com.virtustream.common.db.model.Usercredential;
-import com.virtustream.common.db.model.VUser;
-import com.virtustream.common.db.repository.VUserJpaRepository;
-import com.virtustream.common.dto.AuthCodeDto;
-import com.virtustream.common.dto.ForgotPasswordTokenValidationDto;
-import com.virtustream.common.dto.FusionMessage;
-import com.virtustream.common.dto.GetUserridsResponseDto;
-import com.virtustream.common.dto.PasswordResetDto;
-import com.virtustream.common.dto.ServiceproviderKeyInfoResponseDto;
-import com.virtustream.common.dto.UserRegistrationTokenValidationDto;
-import com.virtustream.common.dto.UserXsKeyPairResponseDto;
-import com.virtustream.common.dto.VUserdto;
-import com.virtustream.common.enums.CSPType;
-import com.virtustream.common.exception.AccountServiceException;
-import com.virtustream.common.exception.FusionException;
-import com.virtustream.common.services.FusionEncryptionService;
-import com.virtustream.common.util.DtoEntityMapper;
-import com.virtustream.common.util.MessageUtil;
-import com.virtustream.common.util.PasswordPolicyValidator;
-import com.virtustream.common.util.SecurityContextUtil;
-import com.virtustream.common.util.constant.FusionConstants;
-import com.virtustream.common.util.constant.MessageKeyConstants;
-import com.virtustream.trustplatform.aop.AclCheck;
-import com.virtustream.trustplatform.aop.LogExecutionTime;
-import com.virtustream.trustplatform.aop.LogRequest;
-import com.virtustream.trustplatform.services.FusionUserAccountService;
-import com.virtustream.trustplatform.services.PFIntegrationService;
-import com.virtustream.trustplatform.services.TenantService;
-import com.virtustream.trustplatform.util.TenantUtil;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -101,7 +60,7 @@ public class UserController {
 	private boolean enforceMfa;
 
     @Autowired
-    private FusionUserAccountService fusionUserAccountService;
+    private UserAccountService userAccountService;
 
     @Autowired
     private VUserJpaRepository vuserJpaRepo;
@@ -111,7 +70,7 @@ public class UserController {
 
     
     @Autowired
-	private FusionEncryptionService encryptionService;
+	private EncryptionService encryptionService;
 
     @Autowired
     private TenantService tenantService;
