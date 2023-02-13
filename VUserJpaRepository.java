@@ -1,15 +1,5 @@
-/**
- * Copyright (c) 2020-2021 Virtustream Corporation 
- * All Rights Reserved
- *
- * This software contains the intellectual property of Virtustream Corporation
- * or is licensed to Virtustream Corporation from third parties. Use of this
- * software and the intellectual property contained therein is expressly 
- * limited to the terms and conditions of the License Agreement under which
- * it is provided by or on behalf of Virtustream.
- *
- */
-package com.virtustream.common.db.repository;
+
+package com.example.common.db.repository;
 
 import java.util.List;
 import java.util.UUID;
@@ -21,7 +11,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import com.virtustream.common.db.model.VUser;
+
 
 @RepositoryRestResource(exported=false)
 public interface VUserJpaRepository extends JpaRepository<VUser, Long> {
@@ -109,9 +99,7 @@ public interface VUserJpaRepository extends JpaRepository<VUser, Long> {
 	VUser finduserprofile(
 			@Param("tenantid")String tenantid,
 			@Param("username")String username );
-	
-	@Query("SELECT v.xstreamInfo FROM VUser v WHERE v.id = :userId AND v.isactive = true")
-	String findXstreamInfoByUserId(@Param("userId") Long userId);
+
 	
 	@Query("SELECT u.azureToken FROM VUser u WHERE u.isactive = true and u.id =:id")
 	String findAzureToken(@Param("id") Long id);
