@@ -1,4 +1,4 @@
-package com.virtustream.common.db.model;
+package com.example.common.db.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
